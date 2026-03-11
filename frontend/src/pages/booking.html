@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Vehicle Rental System</title>
+    <link href="/frontend/dist/styles/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg p-8 rounded w-96">
+        <h2 class="text-2xl font-bold mb-4 text-center">Confirm Booking
+
+        </h2>
+        <div id="vehicle-details" class="mb-4 text-center"></div>
+        <form id="bookingForm"><label class="block mb-2">
+                Select Date
+            </label><input id="date" type="date" class="border p-2 w-full mb-4 rounded" />
+
+            <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+
+                Confirm Booking
+
+            </button>
+        </form>
+    </div>
+    <script type="module" src="/frontend/dist/scripts/booking.js"></script>
+</body>
+
+</html>
