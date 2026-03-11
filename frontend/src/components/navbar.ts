@@ -1,10 +1,10 @@
-export function renderNavbar(){
+export function renderNavbar() {
 
-const navbar = document.getElementById("navbar");
+    const navbar = document.getElementById("navbar");
 
-if(!navbar) return;
+    if (!navbar) return;
 
-navbar.innerHTML = `
+    navbar.innerHTML = `
 
 <header class="bg-blue-600 shadow-md">
 

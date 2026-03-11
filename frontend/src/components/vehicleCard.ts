@@ -1,14 +1,14 @@
-interface Vehicle{
+interface Vehicle {
 
-name:string
-price:number
-image:string
+    name: string
+    price: number
+    image: string
 
 }
 
-export function vehicleCard(vehicle:Vehicle){
+export function vehicleCard(vehicle: Vehicle) {
 
-return `
+    return `
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden p-6">
 

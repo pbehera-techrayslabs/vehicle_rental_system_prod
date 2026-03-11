@@ -1,10 +1,10 @@
-export function renderFooter(){
+export function renderFooter() {
 
-const footer = document.getElementById("footer");
+    const footer = document.getElementById("footer");
 
-if(!footer) return;
+    if (!footer) return;
 
-footer.innerHTML = `
+    footer.innerHTML = `
 
 <footer class="bg-gray-800 text-white text-center p-6">
 
