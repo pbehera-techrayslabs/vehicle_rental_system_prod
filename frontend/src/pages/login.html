@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Vehicle Rental System</title>
+    <link href="/frontend/dist/styles/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col"><!-- HEADER -->
+    <header class="bg-blue-600 text-white p-4 flex items-center"><a href="/frontend/index.html"
+            class="bg-white text-blue-600 px-3 py-1 rounded mr-4">
+
+            ← Back
+
+        </a>
+        <h1 class="text-lg font-semibold">
+            Vehicle Rental System
+        </h1>
+    </header><!-- LOGIN FORM -->
+    <div class="flex grow items-center justify-center">
+        <div class="bg-white shadow-lg rounded-lg p-8 w-96">
+            <h2 class="text-2xl font-bold text-center mb-6">Login
+
+            </h2>
+            <form id="loginForm"><select id="role" class="border p-2 w-full mb-4 rounded">
+
+                    <option value="user">User Login</option>
+                    <option value="admin">Admin Login</option>
+                </select><input id="email" type="email" placeholder="Email" class="border p-2 w-full mb-4 rounded" />
+
+                <input id="password" type="password" placeholder="Password" class="border p-2 w-full mb-4 rounded" />
+
+                <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+
+                    Login
+
+                </button>
+            </form>
+            <p class="mt-4 text-center text-sm">New user?
+
+                <a href="/frontend/src/pages/register.html" class="text-blue-600 font-semibold">
+
+                    Register here
+
+                </a>
+            </p>
+        </div>
+    </div>
+    <script type="module" src="/frontend/dist/scripts/login.js"></script>
+</body>
+
+</html>
