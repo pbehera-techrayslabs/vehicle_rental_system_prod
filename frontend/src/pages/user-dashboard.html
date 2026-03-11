@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="/frontend/dist/styles/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="font-bold text-lg">
+            Vehicle Rental System
+        </h1>
+        <div id="userSection"></div>
+    </header>
+    <section class="max-w-5xl mx-auto py-12 text-center">
+        <h2 id="welcomeMessage" class="text-3xl font-bold mb-10">
+            Welcome
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6"><a href="/frontend/src/pages/vehicles.html"
+                class="bg-blue-600 text-white p-6 rounded">
+
+                View Vehicles
+
+            </a><a href="/frontend/src/pages/my-bookings.html" class="bg-green-600 text-white p-6 rounded">
+
+                My Bookings
+
+            </a></div>
+    </section>
+    <script type="module" src="/frontend/dist/scripts/user-dashboard.js"></script>
+</body>
+
+</html>
