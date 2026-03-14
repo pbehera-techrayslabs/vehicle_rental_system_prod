@@ -8,7 +8,7 @@ export function renderFooter() {
 
 <footer class="bg-gray-800 text-white text-center p-6">
 
-<p>© 2026  Travels. All rights reserved.</p>
+<p>© 2026  RentWheels. All rights reserved.</p>
 
 </footer>
 

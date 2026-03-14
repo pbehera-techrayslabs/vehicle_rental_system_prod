@@ -9,7 +9,7 @@ navbar.innerHTML = `
 <header class="bg-linear-to-r from-blue-700 to-blue-500 shadow-lg sticky top-0 z-50"><div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-white"><!-- Logo + Title --><div class="flex items-center space-x-3"><span class="text-3xl">🚗</span>
 
 <h1 class="text-2xl font-bold tracking-wide">
-Vehicle Rental System
+RentWheels
 </h1></div><!-- Navigation Links --><nav class="flex items-center space-x-6 text-lg"><a href="/frontend/index.html"
 class="hover:text-yellow-300 transition duration-300">
 Home
