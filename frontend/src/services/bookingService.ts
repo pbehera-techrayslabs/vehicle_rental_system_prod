@@ -19,3 +19,11 @@ export function deleteBooking(id: number) {
     bookings = bookings.filter((b: any) => b.id !== id);
     saveBookings(bookings);
 }
+export function isVehicleBooked(vehicleId: number, date: string) {
+    const bookings = getBookings();
+    return bookings.find((b: any) =>
+        b.vehicleId === vehicleId &&
+        b.date === date &&
+        b.status === "Booked"
+    );
+}
