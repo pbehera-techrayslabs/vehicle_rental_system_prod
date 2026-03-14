@@ -8,24 +8,19 @@
     <link href="/frontend/dist/styles/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-lg p-8 rounded w-96">
-        <h2 class="text-2xl font-bold mb-4 text-center">Confirm Booking
-
-        </h2>
-        <div id="vehicle-details" class="mb-4 text-center"></div>
-        <form id="bookingForm"><label class="block mb-2">
-                Select Date
-            </label><input id="date" type="date" class="border p-2 w-full mb-4 rounded" />
-
-            <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
-
+<body class="bg-linear-to-br from-blue-500 to-blue-700 min-h-screen flex items-center justify-center">
+    <div class="bg-white/95 backdrop-blur-lg shadow-2xl p-10 rounded-xl w-105">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">🚗 Confirm Booking</h2>
+        <div id="vehicle-details" class="bg-gray-100 rounded-lg p-4 text-center mb-6 shadow-inner">
+            <p class="text-gray-500 text-sm">Selected Vehicle</p>
+        </div>
+        <form id="bookingForm"><label class="block mb-2 text-gray-600 font-semibold">Select Booking Date
+            </label><input id="date" type="date"class="border p-3 w-full mb-6 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" />
+            <button class="bg-linear-to-r from-blue-600 to-blue-500 text-white w-full py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
                 Confirm Booking
-
             </button>
         </form>
     </div>
     <script type="module" src="/frontend/dist/scripts/booking.js"></script>
 </body>
-
 </html>
