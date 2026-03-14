@@ -8,20 +8,55 @@
     <link href="/frontend/dist/styles/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 min-h-screen">
-    <header class="bg-blue-600 text-white p-4 flex justify-between">
+<body class="bg-linear-to-b from-blue-700 to-blue-200 min-h-screen">
+
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold">
             All Bookings
         </h1>
-        <a href="/frontend/src/pages/admin-dashboard.html">
+
+        <a href="/frontend/src/pages/admin-dashboard.html"
+            class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-200">
+
             Back
         </a>
     </header>
-    <section class="max-w-6xl mx-auto py-12">
+
+
+    <section class="max-w-6xl mx-auto py-12 px-4">
+
         <h2 class="text-2xl font-bold mb-6">
             Booking List
         </h2>
-        <table class="w-full bg-white shadow rounded">
+        <div class="flex flex-wrap gap-3 mb-6 items-center">
+
+            <button class="filter-btn bg-gray-600 text-white px-3 py-1 rounded" data-filter="All">
+                All
+            </button>
+
+            <button class="filter-btn bg-yellow-500 text-white px-3 py-1 rounded" data-filter="Pending">
+                Pending
+            </button>
+
+            <button class="filter-btn bg-green-600 text-white px-3 py-1 rounded" data-filter="Booked">
+                Booked
+            </button>
+
+            <button class="filter-btn bg-red-500 text-white px-3 py-1 rounded" data-filter="Cancelled">
+                Cancelled
+            </button>
+
+            <input type="date" id="date-filter" class="border px-3 py-1 rounded">
+
+            <button id="clear-date" class="bg-blue-600 text-white px-3 py-1 rounded">
+                Clear Date
+            </button>
+
+        </div>
+
+
+        <table class="w-full bg-white shadow rounded overflow-hidden">
+
             <thead class="bg-gray-200">
                 <tr>
                     <th class="p-3">Vehicle</th>
