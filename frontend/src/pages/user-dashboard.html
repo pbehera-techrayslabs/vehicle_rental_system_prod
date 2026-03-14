@@ -8,29 +8,65 @@
     <link href="/frontend/dist/styles/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 min-h-screen">
-    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 class="font-bold text-lg">
-            Vehicle Rental System
+<body class="bg-linear-to-br from-blue-500 via-indigo-500 to-purple-600 min-h-screen">
+
+    <header class="bg-white/20 backdrop-blur-md text-white p-4 flex justify-between items-center shadow-lg">
+
+        <h1 class="font-bold text-xl tracking-wide">
+            🚗 Vehicle Rental System
         </h1>
-        <div id="userSection"></div>
+
+        <div id="userSection" class="flex items-center gap-3">
+        </div>
+
     </header>
-    <section class="max-w-5xl mx-auto py-12 text-center">
-        <h2 id="welcomeMessage" class="text-3xl font-bold mb-10">
+    <section class="max-w-6xl mx-auto py-16 px-6 text-center">
+
+        <h2 id="welcomeMessage" class="text-4xl font-bold mb-12 text-white">
             Welcome
         </h2>
-        <div class="grid md:grid-cols-2 gap-6"><a href="/frontend/src/pages/vehicles.html"
-                class="bg-blue-600 text-white p-6 rounded">
 
-                View Vehicles
+        <div class="grid md:grid-cols-2 gap-10">
+            <a href="/frontend/src/pages/vehicles.html"
+                class="bg-white p-10 rounded-2xl shadow-2xl hover:scale-105 hover:shadow-3xl transition duration-300">
 
-            </a><a href="/frontend/src/pages/my-bookings.html" class="bg-green-600 text-white p-6 rounded">
+                <div class="text-6xl mb-5">
+                    🚘
+                </div>
 
-                My Bookings
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">
+                    Browse Vehicles
+                </h3>
 
-            </a></div>
+                <p class="text-gray-500">
+                    Explore all available vehicles and choose your perfect ride.
+                </p>
+
+            </a>
+            <a href="/frontend/src/pages/my-bookings.html"
+                class="bg-white p-10 rounded-2xl shadow-2xl hover:scale-105 hover:shadow-3xl transition duration-300">
+
+                <div class="text-6xl mb-5">
+                    📋
+                </div>
+
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">
+                    My Bookings
+                </h3>
+
+                <p class="text-gray-500">
+                    View your bookings and manage your reservations.
+                </p>
+
+            </a>
+
+        </div>
+
     </section>
+
+
     <script type="module" src="/frontend/dist/scripts/user-dashboard.js"></script>
+
 </body>
 
 </html>
