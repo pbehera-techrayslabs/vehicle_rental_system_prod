@@ -86,7 +86,7 @@ Delete
 </button>
 
 </div>`
-vehicleList.appendChild(card)
+        vehicleList.appendChild(card)
     })
     vehicleCount.textContent = list.length.toString()
 
@@ -174,17 +174,17 @@ document.addEventListener("click", (e) => {
             confirmButtonColor: "#d33",
             confirmButtonText: "Update"
         }).then((result: any) => {
-        if (vehicle) {
-            idInput.value = vehicle.id
-            nameInput.value = vehicle.name
-            typeInput.value = vehicle.type
-            priceInput.value = vehicle.price
-            quantityInput.value = vehicle.quantity
-            submitBtn.textContent = "Update Vehicle"
-            formTitle.textContent = "Update Vehicle"
-        }
-    });
-}
+            if (vehicle) {
+                idInput.value = vehicle.id
+                nameInput.value = vehicle.name
+                typeInput.value = vehicle.type
+                priceInput.value = vehicle.price
+                quantityInput.value = vehicle.quantity
+                submitBtn.textContent = "Update Vehicle"
+                formTitle.textContent = "Update Vehicle"
+            }
+        });
+    }
 })
 searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase()
