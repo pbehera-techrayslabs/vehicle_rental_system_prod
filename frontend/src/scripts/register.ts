@@ -1,5 +1,8 @@
-import { hashPassword } from "../services/authService.js";
 
+import { hashPassword } from "../services/authService.js";
+import { showToast } from "../utils/toast.js";
+
+declare const Swal: any;
 const form = document.getElementById("registerForm") as HTMLFormElement;
 
 form.addEventListener("submit", async (e) => {
@@ -14,40 +17,40 @@ form.addEventListener("submit", async (e) => {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     if (!name || !email || !password) {
-        alert("All fields are required");
+        showToast("All fields are required", "error");
         return;
     }
 
     if (name.length < 3) {
-        alert("Name must be at least 3 characters");
+        showToast("Name must be at least 3 characters", "error");
         return;
     }
 
     const namePattern = /^[A-Za-z\s]+$/;
     if (!namePattern.test(name)) {
-        alert("Name must contain alphabets and spaces only");
+        showToast("Name must contain alphabets and spaces only", "error");
         return;
     }
     const emailRegex = /^[^ ]+@[^ ]+.[a-z]{2,3}$/;
     if (!emailRegex.test(email)) {
-        alert("Enter a valid email");
+        showToast("Enter a valid email", "error");
         return;
     }
 
     if (password.length < 8) {
-        alert("Password must be at least 8 characters");
+        showToast("Password must be at least 8 characters", "error");
         return;
     }
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8}$/;
     if (!passwordPattern.test(password)) {
-        alert("Password must contain at least one letter and number");
+        showToast("Password must contain at least one letter and number", "error");
         return;
     }
 
     let users = JSON.parse(localStorage.getItem("users") || "[]");
     const userExists = users.find((u: any) => u.email === email);
     if (userExists) {
-        alert("User already exists with this email");
+        showToast("User already exists with this email",);
         return;
     }
 
@@ -61,6 +64,12 @@ form.addEventListener("submit", async (e) => {
 
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    alert("Registration successful");
-    window.location.href = "/frontend/src/pages/login.html";
+    Swal.fire({
+        icon: "success",
+        title: "Registration successful",
+        confirmButtonColor: "green"
+    }).then(() => {
+        window.location.href = "/frontend/src/pages/login.html";
+    })
+
 });
