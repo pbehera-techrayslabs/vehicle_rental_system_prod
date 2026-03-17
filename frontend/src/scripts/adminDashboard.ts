@@ -38,7 +38,28 @@ function loadStats() {
         pendingBookings.length.toString();
     (document.getElementById("bookedBookings") as HTMLElement).textContent =
         bookedBookings.length.toString();
+    const revenue=calculateRevenue();
+    (document.getElementById("totalRevenue") as HTMLElement).textContent=
+    "₹"+revenue;
 
+}
+function calculateRevenue(){
+    const vehicles = getVehicles();
+    const bookings= getBookings();
+    let revenue=0;
+    bookings.forEach((b:any)=>{
+        if(b.status!=="Booked")
+            return;
+        const vehicle= vehicles.find((v:any)=>v.id===b.vehicleId);
+        if(!vehicle)
+            return;
+        const start= new Date(b.startDate);
+        const end= new Date(b.endDate);
+        const diff=end.getTime()-start.getTime();
+        const days=Math.ceil(diff/(1000*60*60*24))+1;
+        revenue+=days*vehicle.price;
+    });
+    return revenue;
 }
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn?.addEventListener("click", () => {
