@@ -6,19 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking | RentWheels</title>
     <link href="/frontend/dist/styles/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-linear-to-br from-blue-500 to-blue-700 min-h-screen flex items-center justify-center">
     <div class="bg-white/95 backdrop-blur-lg shadow-2xl p-10 rounded-xl w-105">
+        <div id="toast-box" class="flex justify-center items-start top-0"></div>
         <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">🚗 Confirm Booking</h2>
         <div id="vehicle-details" class="bg-gray-100 rounded-lg p-4 text-center mb-6 shadow-inner">
             <p class="text-gray-500 text-sm">Selected Vehicle</p>
         </div>
-        <form id="bookingForm"><label class="block mb-2 text-gray-600 font-semibold">Select Booking Date
-            </label><input id="date" type="date"class="border p-3 w-full mb-6 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" />
-            <button class="bg-linear-to-r from-blue-600 to-blue-500 text-white w-full py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
-                Confirm Booking
-            </button>
+        <form id="bookingForm">
+            <input id="phone" placeholder="Phone Number" class="border p-2 w-full mb-3 rounded" />
+            <label>Start Date</label>
+            <input id="startDate" type="date" class="border p-2 w-full mb-3 rounded" required />
+            <label>End Date</label>
+            <input id="endDate" type="date" class="border p-2 w-full mb-3 rounded" required />
+            <p id="totalPrice" class="text-green-600 font-semibold mb-3"></p>
+            <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">Proceed to payment</button>
         </form>
     </div>
     <script type="module" src="/frontend/dist/scripts/booking.js"></script>
