@@ -1,3 +1,4 @@
+declare const Swal: any;
 const session = JSON.parse(localStorage.getItem("session") || "null");
 
 if (!session || session.role !== "admin") {
@@ -41,9 +42,21 @@ function loadStats() {
 }
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn?.addEventListener("click", () => {
-    localStorage.removeItem("session");
-    document.cookie = "auth=false";
-    alert("you have been logged out");
-    window.location.href = "/frontend/src/pages/login.html";
+    Swal.fire({
+        title: "Logout?",
+        text: "Are you sure you want to logout?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonCancel: "#d33",
+        confirmButtonText: "Yes, Logout."
+    }).then((result: any) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("session");
+            document.cookie = "auth=false";
+            window.location.href = "/frontend/src/pages/login.html";
+        }
+    })
+
 });
 loadStats();
