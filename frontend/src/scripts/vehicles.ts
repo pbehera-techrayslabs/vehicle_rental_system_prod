@@ -39,26 +39,36 @@ function getVehicleAvailability(vehicleId: number) {
         available: quantity - bookedCount
     };
 }
+function getAvailabilityIndicator(available:number,total:number){
+
+if(available === 0){
+return `<p class="text-red-600 font-semibold">🔴 Fully Booked</p>`;
+}
+
+if(available <= Math.ceil(total/2)){
+return `<p class="text-yellow-600 font-semibold">🟡 Limited Availability</p>`;
+}
+
+return `<p class="text-green-600 font-semibold">🟢 Available</p>`;
+
+}
 function renderVehicles() {
     const vehicles = getVehicles();
     container.innerHTML = "";
     vehicles.forEach((vehicle: Vehicle) => {
         const availability = getVehicleAvailability(vehicle.id);
         const icon = getVehicleIcon(vehicle.type);
+        const indicator = getAvailabilityIndicator(availability.available,availability.total);
         container.innerHTML += `
-<div class="bg-white shadow-lg rounded-lg p-6"><h3 class="text-xl font-semibold">
+<div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ">
+<h3 class="text-xl font-semibold">
 ${icon} ${vehicle.name}
 </h3><p class="text-gray-600 mt-2">
 Type: ${vehicle.type}
 </p><p class="text-gray-600">
 ₹${vehicle.price} / day
-</p><p class="text-sm mt-2 text-gray-700">
-Total Units: ${availability.total}
-</p><p class="text-sm text-red-500">
-Booked: ${availability.booked}
-</p><p class="text-sm text-green-600 font-semibold">
-Available: ${availability.available}
-</p><button
+</p>
+${indicator}<button
 data-id="${vehicle.id}"
 ${availability.available <= 0 ? "disabled" : ""}
 class="book-btn mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:bg-gray-400">
