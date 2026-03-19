@@ -104,49 +104,6 @@ Tools
 - Git
 - GitHub
 
-📂 Project Structure
-
-frontend/
-│
-├── components/
-│   ├── navbar.ts
-│   |── footer.ts
-│   |__vehicleCard.ts
-├── pages/
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── vehicles.html
-│   ├── booking.html
-│   ├── my-bookings.html
-│   ├── admin-dashboard.html
-│   ├── manage-vehicles.html
-│   └── view-bookings.html
-│
-├── scripts/
-│   ├── home.ts
-│   ├── vehicles.ts
-│   ├── booking.ts
-│   ├── myBookings.ts
-│   ├── manageVehicles.ts
-│   ├── viewBookings.ts
-│   └── adminDashboard.ts
-│
-├── services/
-│   ├── authService.ts
-│   ├── bookingService.ts
-│   ├── vehicleService.ts
-│   └── userService.ts
-│
-├── utils/
-│   ├── session.ts
-│   └── toast.ts
-│
-└── styles/
-    └── output.css
-
----
-
 ⚙️ Installation
 
 Clone the repository:
