@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./frontend/src/styles/input.css -o ./frontend/dist/output.css --watch",
-    "build:css": "npx tailwindcss/cli -i ./frontend/src/styles/input.css -o ./frontend/dist/output.css --minify",
+    "dev":"npx @tailwindcss/cli -i ./src/styles/input.css -o ./dist/styles/output.css --watch",
+    "build:css":"npx @tailwindcss/cli -i ./src/styles/input.css -o ./dist/styles/output.css --minify",
     "build:ts": "npx tsc",
-    "build": "npm run build:css && npm run build:ts",
+    "build":"npm run build:css &&  npm run build:ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +15,9 @@
   "description": "",
   "devDependencies": {
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "tailwindcss":"^4.2.1",
+    "@tailwindcss/cli": "^4.2.1"
   }
-  
 }
