@@ -73,9 +73,12 @@ payBtn?.addEventListener("click", () => {
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
     localStorage.removeItem("paymentBooking");
-
-    alert("Payment successful. Booking request sent.");
-
+    Swal.fire({
+        icon: "success",
+        title: "Payment successful",
+        text: "Booking request sent for approval"
+    }).then(() => {
     window.location.href = "/frontend/src/pages/my-bookings.html";
+    });
 
 });
