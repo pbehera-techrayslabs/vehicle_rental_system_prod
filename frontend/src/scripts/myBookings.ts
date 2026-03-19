@@ -35,7 +35,7 @@ function renderBookings() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const startDate = new Date(b.startDate);
-        const canCancel = startDate > today && b.status !== "Cancelled";
+        const canCancel = startDate > today && b.status !=="Cancelled";
         container.innerHTML += `
 <div class="bg-white shadow-lg p-6 rounded-lg"><h3 class="text-xl font-semibold">
 ${vehicle?.name || "Vehicle"}
@@ -69,6 +69,7 @@ document.addEventListener("click", (e) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const startDate = new Date(booking.startDate);
+        const canCancel=startDate > today && booking.status !=="Cancelled";
 
         if (startDate <= today) {
             Swal.fire({

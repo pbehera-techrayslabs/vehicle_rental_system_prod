@@ -1,5 +1,6 @@
-declare const Swal: any;
 
+
+declare const Swal: any;
 const session = JSON.parse(localStorage.getItem("session") || "null");
 
 if (!session || session.role !== "admin") {
@@ -109,6 +110,7 @@ form.addEventListener("submit", (e) => {
         })
         return
     }
+
     if (id) {
         vehicles = vehicles.map((v: any) =>
             v.id == id
