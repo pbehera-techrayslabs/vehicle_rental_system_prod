@@ -37,7 +37,7 @@ function renderBookings() {
             !selectedDate ||
             (new Date(selectedDate) >= new Date(b.startDate) &&
                 new Date(selectedDate) <= new Date(b.endDate));
-        return statusMatch && dateMatch;
+                return statusMatch && dateMatch ;
     });
     filteredBookings.forEach((b: any) => {
         const vehicle = vehicles.find((v: any) => v.id === b.vehicleId);
@@ -91,7 +91,6 @@ selectedDate = dateInput.value;
 renderBookings();
 
 });
-
 const clearBtn = document.getElementById("clear-date");
 clearBtn?.addEventListener("click", () => {
 selectedDate = "";
