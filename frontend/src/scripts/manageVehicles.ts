@@ -130,7 +130,7 @@ form.addEventListener("submit", (e) => {
             name,
             type,
             price,
-            quantity
+            quantity:Number(quantity)
         })
         Swal.fire({
             icon: "success",
