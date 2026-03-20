@@ -190,7 +190,15 @@ form.addEventListener("submit", (e) => {
         startDate,
         endDate
     }));
-    const blockedDates = getBlockedDates();
+    Swal.fire({
+        icon: "success",
+        title: "Proceeding to Payment",
+        confirmButtonColor: "green"
+    }).then(() => {
+        window.location.href = "/frontend/src/pages/payment.html";
+    });
+});
+const blockedDates = getBlockedDates();
 
 const startPicker = flatpickr(startInput, {
     dateFormat: "Y-m-d",
@@ -205,13 +213,4 @@ const endPicker = flatpickr(endInput, {
     dateFormat: "Y-m-d",
     minDate: "today",
     disable: blockedDates
-});
-
-    Swal.fire({
-        icon: "success",
-        title: "Proceeding to Payment",
-        confirmButtonColor: "green"
-    }).then(() => {
-        window.location.href = "/frontend/src/pages/payment.html";
-    });
 });
