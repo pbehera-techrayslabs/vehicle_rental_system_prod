@@ -8,7 +8,7 @@ const session = JSON.parse(localStorage.getItem("session") || "null");
 
 if (!session || session.role !== "user") {
     showToast("Please login first", "error");
-    window.location.href = "/frontend/src/pages/login.html";
+    window.location.href = "login.html";
 }
 const vehicleDetails = document.getElementById("vehicle-details");
 const form = document.getElementById("bookingForm") as HTMLFormElement | null;
@@ -195,7 +195,7 @@ form.addEventListener("submit", (e) => {
         title: "Proceeding to Payment",
         confirmButtonColor: "green"
     }).then(() => {
-        window.location.href = "/frontend/src/pages/payment.html";
+        window.location.href = "payment.html";
     });
 });
 const blockedDates = getBlockedDates();

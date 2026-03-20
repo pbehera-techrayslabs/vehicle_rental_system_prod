@@ -89,12 +89,12 @@ document.addEventListener("click", (e) => {
     if (target.classList.contains("book-btn")) {
         if (!session || session.role !== "user") {
             alert("Please login as user");
-            window.location.href = "/frontend/src/pages/login.html";
+            window.location.href = "login.html";
             return;
         }
         const vehicleId = target.getAttribute("data-id");
         localStorage.setItem("selectedVehicle", vehicleId || "");
-        window.location.href = "/frontend/src/pages/booking.html";
+        window.location.href = "booking.html";
     }
 });
 renderVehicles();

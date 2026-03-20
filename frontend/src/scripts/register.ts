@@ -69,7 +69,7 @@ form.addEventListener("submit", async (e) => {
         title: "Registration successful",
         confirmButtonColor: "green"
     }).then(() => {
-        window.location.href = "/frontend/src/pages/login.html";
+        window.location.href = "login.html";
     })
 
 });

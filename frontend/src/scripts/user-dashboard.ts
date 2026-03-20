@@ -4,7 +4,7 @@ const session = JSON.parse(localStorage.getItem("session") || "null");
 if (!session) {
 
     alert("Please login");
-    window.location.href = "/frontend/src/pages/login.html";
+    window.location.href = "login.html";
 
 }
 
@@ -34,7 +34,7 @@ logoutBtn?.addEventListener("click", () => {
         if (result.isConfirmed) {
             localStorage.removeItem("session");
             document.cookie = "auth=false";
-            window.location.href = "/frontend/src/pages/login.html";
+            window.location.href = "login.html";
         }
     })
 });

@@ -126,7 +126,7 @@ document.addEventListener("click", (event) => {
 
             showToast("Please login first", "error")
 
-            window.location.href = "/frontend/src/pages/login.html"
+            window.location.href = "login.html"
 
             return
 
@@ -136,7 +136,7 @@ document.addEventListener("click", (event) => {
 
         localStorage.setItem(STORAGE_KEYS.SELECTED_VEHICLE, vehicleId || "")
 
-        window.location.href = "/frontend/src/pages/booking.html"
+        window.location.href = "booking.html"
 
     }
 

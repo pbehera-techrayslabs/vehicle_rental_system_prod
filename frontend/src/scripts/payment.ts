@@ -7,7 +7,7 @@ if (!session || session.role !== "user") {
         title: "Access Denied",
         text: "User login required"
     }).then(() => {
-        window.location.href = "/frontend/index.html";
+        window.location.href = "index.html";
     });
 
 }
@@ -26,7 +26,7 @@ if (!bookingData) {
         title: "Access Denied",
         text: "User login required"
     }).then(() => {
-        window.location.href = "/frontend/src/pages/vehicles.html";
+        window.location.href = "vehicles.html";
     });
 
 }
@@ -78,7 +78,7 @@ payBtn?.addEventListener("click", () => {
         title: "Payment successful",
         text: "Booking request sent for approval"
     }).then(() => {
-    window.location.href = "/frontend/src/pages/my-bookings.html";
+    window.location.href = "my-bookings.html";
     });
 
 });

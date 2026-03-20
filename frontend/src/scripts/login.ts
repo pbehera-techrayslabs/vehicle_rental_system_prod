@@ -33,7 +33,7 @@ form.addEventListener("submit", async (e) => {
                 title: "Login successful",
                 confirmButtonColor: "green"
             }).then(() => {
-            window.location.href = "/frontend/src/pages/admin-dashboard.html";
+            window.location.href = "admin-dashboard.html";
             return;
             })
         }
@@ -55,7 +55,7 @@ form.addEventListener("submit", async (e) => {
                 title: "Login successful",
                 confirmButtonColor: "green"
             }).then(() => {
-                window.location.href = "/frontend/src/pages/user-dashboard.html";
+                window.location.href = "user-dashboard.html";
                 return;
     })
         }

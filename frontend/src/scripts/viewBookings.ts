@@ -1,7 +1,7 @@
 const session = JSON.parse(localStorage.getItem("session") || "null");
 if (!session || session.role !== "admin") {
     alert("Access denied");
-    window.location.href = "/frontend/index.html";
+    window.location.href = "index.html";
 }
 const table = document.getElementById("booking-table");
 function getVehicles() {

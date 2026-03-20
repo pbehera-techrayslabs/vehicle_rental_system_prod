@@ -3,7 +3,7 @@ const session = JSON.parse(localStorage.getItem("session") || "null");
 
 if (!session || session.role !== "admin") {
     alert("Access denied");
-    window.location.href = "/frontend/index.html";
+    window.location.href = "index.html";
 }
 function getVehicles() {
     return JSON.parse(localStorage.getItem("vehicles") || "[]");
@@ -75,7 +75,7 @@ logoutBtn?.addEventListener("click", () => {
         if (result.isConfirmed) {
             localStorage.removeItem("session");
             document.cookie = "auth=false";
-            window.location.href = "/frontend/src/pages/login.html";
+            window.location.href = "login.html";
         }
     })
 

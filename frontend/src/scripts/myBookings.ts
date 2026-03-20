@@ -8,7 +8,7 @@ if (!session || session.role !== "user") {
         title: "Login Required",
         text: "Please login first"
     }).then(() => {
-        window.location.href = "/frontend/src/pages/login.html";
+        window.location.href = "login.html";
     });
 }
 const container = document.getElementById("booking-container");

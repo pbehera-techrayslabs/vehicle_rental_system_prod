@@ -7,7 +7,7 @@ if (!session || session.role !== "admin") {
         title: "Access Denied",
         text: "Admin login required"
     }).then(() => {
-        window.location.href = "/frontend/index.html";
+        window.location.href = "index.html";
     });
 
 }
