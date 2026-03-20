@@ -15,17 +15,17 @@ class="hover:text-yellow-300 transition duration-300">
 Home
 </a>
 
-<a href="vehicles.html"
+<a href="./src/pages/vehicles.html"
 class="hover:text-yellow-300 transition duration-300">
 Vehicles
 </a>
 
-<!-- Login Button --><a href="../pages/login.html"
+<!-- Login Button --><a href="./src/pages/login.html"
 class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300 hover:text-black transition duration-300">
 Login
 </a>
 
-<!-- Register Button --><a href="../pages/register.html"
+<!-- Register Button --><a href="./src/pages/register.html"
 class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300">
 Register
 </a>
