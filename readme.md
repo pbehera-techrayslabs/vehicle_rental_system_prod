@@ -108,13 +108,25 @@ Tools
 
 Clone the repository:
 
-git clone 
+git clone git@github.com:pbehera-techrayslabs/vehicle_rental_system_prod.git
 
 Navigate into the project folder:
 
-cd vehicle-rental-system
+cd vehicle_rental_system_prod
 
-Open the project in VS Code and run using Live Server.
+Open the project in VS Code  and open terminal
+
+cd frontend
+
+after that,
+ Run:-
+
+ npm run dev 
+ npm run build 
+
+then 
+
+run using Live Server.
 
 ---
 
