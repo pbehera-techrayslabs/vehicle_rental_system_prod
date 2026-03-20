@@ -1,0 +1,1024 @@
+openapi: 3.0.4
+info:
+  title: Vehicle Rental System API
+  version: 1.0.0
+  description: Complete API documentation for all tables in vehicle_rental_system database.
+
+servers:
+  - url: http://localhost:3000/api
+
+tags:
+  - name: Users
+    description: Operations related to users in the system
+  - name: UserAddress
+    description: Operations related to user addresses 
+  - name: UserDrivingLicense
+    description: Operations related to user driving licenses 
+  - name: VehicleBrand
+    description: Operations related to vehicle brands 
+  - name: VehicleModel
+    description: Operations related to vehicle models 
+  - name: VehicleCategory
+    description: Operations related to vehicle categories 
+  - name: Vehicles
+    description: Operations related to vehicles 
+  - name: Price
+    description: Operations related to price details for vehicles 
+  - name: Bookings
+    description: Operations related to bookings
+  - name: Payments
+    description: Operations related to payments for bookings 
+  - name: Maintenance
+    description: Operations related to vehicle maintenance 
+  - name: Reviews
+    description: Operations related to vehicle reviews 
+
+paths:
+
+
+
+  /users:
+    get:
+      tags: [Users]
+      summary: Get all users
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+    post:
+      tags: [Users]
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+
+  /users/{userid}:
+    get:
+      tags: [Users]
+      summary: Get user by ID
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+    put:
+      tags: [Users]
+      summary: Update user
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+
+    delete:
+      tags: [Users]
+      summary: Delete user
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User deleted
+
+
+
+  /useraddress:
+    get:
+      tags: [UserAddress]
+      summary: Get all addresses
+      responses:
+        '200':
+          description: List of addresses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAddress'
+
+    post:
+      tags: [UserAddress]
+      summary: Create address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddress'
+      responses:
+        '201':
+          description: Address created
+
+  /useraddress/{addressid}:
+    get:
+      tags: [UserAddress]
+      summary: Get address by ID
+      parameters:
+        - name: addressid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Address found
+
+    put:
+      tags: [UserAddress]
+      summary: Update address
+      parameters:
+        - name: addressid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddress'
+      responses:
+        '200':
+          description: Address updated
+
+    delete:
+      tags: [UserAddress]
+      summary: Delete address
+      parameters:
+        - name: addressid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Address deleted
+
+
+
+  /userdrivinglicense:
+    get:
+      tags: [UserDrivingLicense]
+      summary: Get all licenses
+      responses:
+        '200':
+          description: List of licenses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDrivingLicense'
+
+    post:
+      tags: [UserDrivingLicense]
+      summary: Create license
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDrivingLicense'
+      responses:
+        '201':
+          description: License created
+
+  /userdrivinglicense/{licenseid}:
+    get:
+      tags: [UserDrivingLicense]
+      summary: Get license by ID
+      parameters:
+        - name: licenseid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: License found
+
+    put:
+      tags: [UserDrivingLicense]
+      summary: Update license
+      parameters:
+        - name: licenseid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDrivingLicense'
+      responses:
+        '200':
+          description: License updated
+
+    delete:
+      tags: [UserDrivingLicense]
+      summary: Delete license
+      parameters:
+        - name: licenseid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: License deleted
+
+
+  /vehiclebrand:
+    get:
+      tags: [VehicleBrand]
+      summary: Get all brands
+      responses:
+        '200':
+          description: List of brands
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleBrand'
+
+    post:
+      tags: [VehicleBrand]
+      summary: Create brand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleBrand'
+      responses:
+        '201':
+          description: Brand created
+
+  /vehiclebrand/{brandid}:
+    get:
+      tags: [VehicleBrand]
+      summary: Get brand by ID
+      parameters:
+        - name: brandid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Brand found
+
+    put:
+      tags: [VehicleBrand]
+      summary: Update brand
+      parameters:
+        - name: brandid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleBrand'
+      responses:
+        '200':
+          description: Brand updated
+
+    delete:
+      tags: [VehicleBrand]
+      summary: Delete brand
+      parameters:
+        - name: brandid
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Brand deleted
+
+
+  /vehiclemodel:
+    get:
+      tags:
+        - VehicleModel
+      summary: Get all vehicle models
+      responses:
+        '200':
+          description: List of vehicle models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleModel'
+    post:
+      tags:
+        - VehicleModel
+      summary: Create a new vehicle model
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleModel'
+      responses:
+        '201':
+          description: Vehicle model created
+    put:
+      tags:
+        - VehicleModel
+      summary: Update a vehicle model
+      parameters:
+        - name: modelid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleModel'
+      responses:
+        '200':
+          description: Vehicle model updated
+    delete:
+      tags:
+        - VehicleModel
+      summary: Delete a vehicle model
+      parameters:
+        - name: modelid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Vehicle model deleted
+
+  /vehiclecategory:
+    get:
+      tags:
+        - VehicleCategory
+      summary: Get all vehicle categories
+      responses:
+        '200':
+          description: List of vehicle categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleCategory'
+    post:
+      tags:
+        - VehicleCategory
+      summary: Create a new vehicle category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleCategory'
+      responses:
+        '201':
+          description: Vehicle category created
+    put:
+      tags:
+        - VehicleCategory
+      summary: Update a vehicle category
+      parameters:
+        - name: categoryid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleCategory'
+      responses:
+        '200':
+          description: Vehicle category updated
+    delete:
+      tags:
+        - VehicleCategory
+      summary: Delete a vehicle category
+      parameters:
+        - name: categoryid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Vehicle category deleted
+
+  /vehicle:
+    get:
+      tags:
+        - Vehicles
+      summary: Get all vehicles
+      responses:
+        '200':
+          description: List of vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+    post:
+      tags:
+        - Vehicles
+      summary: Create a new vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          description: Vehicle created
+    put:
+      tags:
+        - Vehicles
+      summary: Update vehicle details
+      parameters:
+        - name: vehicleid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          description: Vehicle updated
+    delete:
+      tags:
+        - Vehicles
+      summary: Delete a vehicle
+      parameters:
+        - name: vehicleid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Vehicle deleted
+
+  /price:
+    get:
+      tags:
+        - Price
+      summary: Get all price details
+      responses:
+        '200':
+          description: List of prices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Price'
+    post:
+      tags:
+        - Price
+      summary: Create price details
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Price'
+      responses:
+        '201':
+          description: Price details created
+    put:
+      tags:
+        - Price
+      summary: Update price details
+      parameters:
+        - name: priceid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Price'
+      responses:
+        '200':
+          description: Price details updated
+    delete:
+      tags:
+        - Price
+      summary: Delete price details
+      parameters:
+        - name: priceid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Price details deleted
+
+  /booking:
+    get:
+      tags:
+        - Bookings
+      summary: Get all bookings
+      responses:
+        '200':
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Booking'
+    post:
+      tags:
+        - Bookings
+      summary: Create a new booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Booking'
+      responses:
+        '201':
+          description: Booking created
+    put:
+      tags:
+        - Bookings
+      summary: Update booking details
+      parameters:
+        - name: bookingid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Booking'
+      responses:
+        '200':
+          description: Booking details updated
+    delete:
+      tags:
+        - Bookings
+      summary: Delete a booking
+      parameters:
+        - name: bookingid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Booking deleted
+
+  /payment:
+    get:
+      tags:
+        - Payments
+      summary: Get all payments
+      responses:
+        '200':
+          description: List of payments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'
+    post:
+      tags:
+        - Payments
+      summary: Make a payment for a booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment processed
+    put:
+      tags:
+        - Payments
+      summary: Update payment details
+      parameters:
+        - name: paymentid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '200':
+          description: Payment updated
+    delete:
+      tags:
+        - Payments
+      summary: Delete a payment
+      parameters:
+        - name: paymentid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Payment deleted
+
+  /maintenance:
+    get:
+      tags:
+        - Maintenance
+      summary: Get all maintenance records
+      responses:
+        '200':
+          description: List of maintenance records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Maintenance'
+    post:
+      tags:
+        - Maintenance
+      summary: Add a new maintenance record for a vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Maintenance'
+      responses:
+        '201':
+          description: Maintenance record created
+    put:
+      tags:
+        - Maintenance
+      summary: Update maintenance record
+      parameters:
+        - name: maintenanceid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Maintenance'
+      responses:
+        '200':
+          description: Maintenance record updated
+    delete:
+      tags:
+        - Maintenance
+      summary: Delete a maintenance record
+      parameters:
+        - name: maintenanceid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Maintenance record deleted
+
+  /review:
+    get:
+      tags:
+        - Reviews
+      summary: Get all reviews for vehicles
+      responses:
+        '200':
+          description: List of vehicle reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+    post:
+      tags:
+        - Reviews
+      summary: Add a new review for a vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '201':
+          description: Review created
+    put:
+      tags:
+        - Reviews
+      summary: Update an existing review
+      parameters:
+        - name: reviewid
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          description: Review updated
+    delete:
+      tags:
+        - Reviews
+      summary: Delete a review
+      parameters:
+        - name: reviewid
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Review deleted
+
+
+
+components:
+
+
+  schemas:
+
+    User:
+      type: object
+      properties:
+        userid:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        password:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    UserAddress:
+      type: object
+      properties:
+        addressid:
+          type: integer
+        userid:
+          type: integer
+        addressline:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pincode:
+          type: string
+
+    UserDrivingLicense:
+      type: object
+      properties:
+        licenseid:
+          type: integer
+        userid:
+          type: integer
+        licensenumber:
+          type: string
+        expirydate:
+          type: string
+          format: date
+        verificationstatus:
+          type: string
+          enum: [Pending, Approved, Rejected]
+
+    VehicleBrand:
+      type: object
+      properties:
+        brandid:
+          type: integer
+        brandname:
+          type: string
+
+    VehicleModel:
+      type: object
+      properties:
+        modelid:
+          type: integer
+        brandid:
+          type: integer
+        modelname:
+          type: string
+        year:
+          type: string
+
+    VehicleCategory:
+      type: object
+      properties:
+        categoryid:
+          type: integer
+        categoryname:
+          type: string
+
+    Vehicle:
+      type: object
+      properties:
+        vehicleid:
+          type: integer
+        vehiclenumber:
+          type: string
+        brandid:
+          type: integer
+        modelid:
+          type: integer
+        categoryid:
+          type: integer
+        fueltype:
+          type: string
+          enum: [Petrol, Diesel, Electric, Hybrid]
+        transmission:
+          type: string
+          enum: [Manual, Automatic]
+        seatingcapacity:
+          type: integer
+        status:
+          type: string
+          enum: [Available, Booked, Maintainance]
+
+    Price:
+      type: object
+      properties:
+        priceid:
+          type: integer
+        vehicleid:
+          type: integer
+        hourlyprice:
+          type: number
+          format: float
+        dailyprice:
+          type: number
+          format: float
+        weeklyprice:
+          type: number
+          format: float
+
+    Booking:
+      type: object
+      properties:
+        bookingid:
+          type: integer
+        userid:
+          type: integer
+        vehicleid:
+          type: integer
+        pickupdate:
+          type: string
+          format: date-time
+        returndate:
+          type: string
+          format: date-time
+        bookingstatus:
+          type: string
+          enum: [Pending, Confirmed, Cancelled, Completed]
+        totalprice:
+          type: number
+          format: float
+
+    Payment:
+      type: object
+      properties:
+        paymentid:
+          type: integer
+        bookingid:
+          type: integer
+        priceid:
+          type: integer
+        paymentstatus:
+          type: string
+          enum: [Pending, Success, Failed]
+        paymentdate:
+          type: string
+          format: date-time
+
+    Maintenance:
+      type: object
+      properties:
+        maintenanceid:
+          type: integer
+        vehicleid:
+          type: integer
+        servicedate:
+          type: string
+          format: date
+        description:
+          type: string
+        cost:
+          type: number
+          format: float
+        nextservicedate:
+          type: string
+          format: date
+
+    Review:
+      type: object
+      properties:
+        reviewid:
+          type: integer
+        userid:
+          type: integer
+        bookingid:
+          type: integer
+        vehicleid:
+          type: integer
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        comment:
+          type: string
+        createdate:
+          type: string
+          format: date-time
