@@ -16,27 +16,34 @@ function getVehicleIcon(type: string) {
     if (t.includes("scooty") || t.includes("scooter")) return "🛵";
     return "🚘";
 }
-function getVehicleAvailability(vehicleId: number) {
+function getVehicleAvailability(vehicleId: number, selectedDate?: string) {
     const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
     const vehicles: Vehicle[] = getVehicles();
+
     const vehicle = vehicles.find(v => v.id === vehicleId);
     if (!vehicle) {
-        return {
-            total: 0,
-            booked: 0,
-            available: 0
-        };
+        return { total: 0, booked: 0, available: 0 };
     }
-    const quantity = vehicle.quantity;
-    const activeBookings = bookings.filter((b: any) =>
-        b.vehicleId === vehicleId &&
-        b.status !== "Cancelled"
-    );
-    const bookedCount = activeBookings.length;
+
+    let booked = 0;
+
+    if (selectedDate) {
+        const checkDate = new Date(selectedDate);
+
+        booked = bookings.filter((b: any) => {
+            if (b.vehicleId !== vehicleId || b.status === "Cancelled") return false;
+
+            const start = new Date(b.startDate);
+            const end = new Date(b.endDate);
+
+            return checkDate >= start && checkDate <= end;
+        }).length;
+    }
+
     return {
-        total: quantity,
-        booked: bookedCount,
-        available: quantity - bookedCount
+        total: vehicle.quantity,
+        booked,
+        available: vehicle.quantity - booked
     };
 }
 function getAvailabilityIndicator(available:number,total:number){
@@ -60,6 +67,7 @@ function renderVehicles() {
         const icon = getVehicleIcon(vehicle.type);
         const indicator = getAvailabilityIndicator(availability.available,availability.total);
         container.innerHTML += `
+        
 <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ">
 <h3 class="text-xl font-semibold">
 ${icon} ${vehicle.name}

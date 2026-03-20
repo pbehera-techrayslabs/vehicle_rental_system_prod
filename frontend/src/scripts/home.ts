@@ -18,7 +18,6 @@ const STORAGE_KEYS = {
 }
 
 initAdmin()
-
 function initializeVehicles() {
 
     const vehicles = localStorage.getItem(STORAGE_KEYS.VEHICLES)
@@ -46,7 +45,7 @@ function getVehicles(): Vehicle[] {
     return JSON.parse(localStorage.getItem(STORAGE_KEYS.VEHICLES) || "[]")
 }
 
-function getAvailability(vehicleId: number) {
+function getAvailability(vehicleId: number, selectedDate?: string) {
 
     const bookings = JSON.parse(localStorage.getItem("bookings") || "[]")
     const vehicles = getVehicles()
@@ -57,19 +56,26 @@ function getAvailability(vehicleId: number) {
         return { total: 0, booked: 0, available: 0 }
     }
 
-    const booked = bookings.filter((b: any) =>
+    let booked = 0
 
-        b.vehicleId === vehicleId &&
-        b.status !== "Cancelled"
+    if (selectedDate) {
+        const checkDate = new Date(selectedDate)
 
-    ).length
+        booked = bookings.filter((b: any) => {
+            if (b.vehicleId !== vehicleId || b.status === "Cancelled") return false
+
+            const start = new Date(b.startDate)
+            const end = new Date(b.endDate)
+
+            return checkDate >= start && checkDate <= end
+        }).length
+    }
 
     return {
         total: vehicle.quantity,
-        booked: booked,
+        booked,
         available: vehicle.quantity - booked
     }
-
 }
 
 function renderVehicles() {
@@ -87,6 +93,7 @@ function renderVehicles() {
         const availability = getAvailability(vehicle.id)
 
         container.innerHTML += `
+        
 
 <div class="bg-white shadow-lg rounded-lg p-6"><h3 class="text-xl font-semibold">${vehicle.name}</h3><p class="text-gray-600 mt-2">Type: ${vehicle.type}</p><p class="text-gray-600">₹${vehicle.price} / day</p><p class="text-sm text-gray-700 mt-2">
 Total Units: ${availability.total}
