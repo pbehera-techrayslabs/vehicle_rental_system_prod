@@ -30,12 +30,16 @@ startInput.min = today;
 endInput.min = today;
 const bookedDates = getVehicleBookedDates(vehicleId);
 function isDateBlocked(date: string) {
-    const checkDate = new Date(date);
-    return bookedDates.some((b: any) => {
-        const start = new Date(b.startDate);
-        const end = new Date(b.endDate);
-        return checkDate >= start && checkDate <= end;
-    });
+  const bookings= getVehicleBookedDates(vehicleId);
+  const vehicles= JSON.parse(localStorage.getItem("vehicles")|| "[]");
+  const vehicle= vehicles.find((v:any)=>v.id===vehicleId);
+  const checkDate= new Date(date);
+  const count= bookings.filter((b:any)=>{
+    const start= new Date(b.startDate);
+    const end= new Date(b.endDate);
+    return checkDate>= start && checkDate <=end;
+  }).length;
+  return count>= vehicle.quantity;
 }
 
 startInput.addEventListener("change", () => {

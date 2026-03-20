@@ -5,14 +5,22 @@ export function isVehicleBooked(vehicleId: number, startDate: string, endDate: s
     if (!vehicle) return true
     const newStart = new Date(startDate)
     const newEnd = new Date(endDate)
-    const overlapping = bookings.filter((b: any) => {
-        if (b.vehicleId !== vehicleId) return false
-        if (b.status === "Cancelled") return false
-        const existingStart = new Date(b.startDate)
-        const existingEnd = new Date(b.endDate)
-        return newStart <= existingEnd && newEnd >= existingStart
-    })
-    return overlapping.length >= vehicle.quantity
+    for (let d= new Date(newStart); d<= newEnd; d.setDate(d.getDate()+1)){
+        const currentDate= d.toISOString().split("T")[0];
+        const count = bookings.filter((b:any)=>{
+            if (b.vehicleId !== vehicleId) return false;
+            if (b.status === "Cancelled") return false;
+
+            const existingStart= new Date(b.startDate);
+            const existingEnd= new Date(b.endDate);
+
+            return d>= existingStart && d<= existingEnd;
+        }).length;
+        if (count>= vehicle.quantity){
+            return true;
+        }
+    }
+    return false;
 }
 export function getVehicleBookedDates(vehicleId: number) {
     const bookings = JSON.parse(localStorage.getItem("bookings") || "[]")
