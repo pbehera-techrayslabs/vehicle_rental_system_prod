@@ -120,7 +120,7 @@ cd frontend
 
 after that,
  Run:-
-
+npm install
  npm run dev 
  npm run build 
 
@@ -145,7 +145,7 @@ User
 
 Admin
 
-1. Login as admin
+1. Login as admin - credentials (admin@admin.com,admin123)
 2. Manage vehicles
 3. Approve bookings
 4. View booking details
